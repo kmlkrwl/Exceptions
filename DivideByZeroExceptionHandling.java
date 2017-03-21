@@ -26,16 +26,11 @@ public class DivideByZeroExceptionHandling
 		System.out.printf("\nResult: %d/%d = %d\n", numerator, denominator, result);
 		continueLoop = false;
 		} //end try
-	catch(InputMismatchException inpex)
+	catch(InputMismatchException | ArithmeticException ex)
 		{
-		System.err.printf("\nException type: %s\n", inpex);
+		System.err.printf("\nException type: %s\n", ex);
 		scanner.nextLine(); //discard user input
-		System.out.println("You must enter integers. Please try again\n");
-		}
-	catch(ArithmeticException aex)
-		{
-		System.err.printf("\nException type: %s\n", aex);
-		System.out.println("Zero is an invalid denominator. Please try again\n");
+		System.out.println("Error! Please try again\n");
 		}
 	finally
 		{
