@@ -1,7 +1,7 @@
 // InsufficientFundsException.java
 import java.util.*;
 
-public class InputIntException extends RuntimeException
+public class InputIntException extends Exception
 
 {
   
