@@ -15,13 +15,13 @@ public class AdditionInputException {
         int sum;           		// sum of number1 and number2
         boolean notDone = true;
         do {
-//            try {
+            try {
                 number1 = readFirstNumber();
                 number2 = readSecondNumber();
                 notDone = false;
-//            } catch (InputIntException ex) {
-//                ex.printStackTrace();
-//            }
+            } catch (InputIntException ex) {
+                ex.printStackTrace();
+            }
         } while (notDone);
 
         //add them
@@ -42,13 +42,21 @@ public class AdditionInputException {
         return num;
     }
 
-    private static int readFirstNumber() {
+    private static int readFirstNumber() throws InputIntException {
         System.out.println("Please Enter First Number: ");
-        return inputNumber();
+        return readNumber();
     }
 
-    private static int readSecondNumber() {
+    private static int readSecondNumber() throws InputIntException{
         System.out.println("Please Enter Second Number: ");
-        return inputNumber();
+        return readNumber();
+    }
+
+    private static int readNumber() throws InputIntException {
+        try{
+            return inputNumber();
+        } catch (InputIntException ex){
+            throw ex;
+        }
     }
 }
